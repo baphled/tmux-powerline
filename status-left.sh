@@ -17,18 +17,18 @@ mute_status_check "left"
 
 # Segments
 
-declare -A tmux_session_info
-tmux_session_info+=(["script"]="${segments_path}/tmux_session_info.sh")
-tmux_session_info+=(["foreground"]="colour234")
-tmux_session_info+=(["background"]="colour148")
-tmux_session_info+=(["separator"]="${separator_right_bold}")
-tmux_session_info+=(["separator_fg"]="default")
-register_segment "tmux_session_info"
+#declare -A tmux_session_info
+#tmux_session_info+=(["script"]="${segments_path}/tmux_session_info.sh")
+#tmux_session_info+=(["foreground"]="colour234")
+#tmux_session_info+=(["background"]="colour148")
+#tmux_session_info+=(["separator"]="${separator_right_bold}")
+#tmux_session_info+=(["separator_fg"]="default")
+#register_segment "tmux_session_info"
 
 declare -A hostname
 hostname+=(["script"]="${segments_path}/hostname.sh")
-hostname+=(["foreground"]="colour0")
-hostname+=(["background"]="colour33")
+hostname+=(["foreground"]="colour238")
+hostname+=(["background"]="colour245")
 hostname+=(["separator"]="${separator_right_bold}")
 register_segment "hostname"
 
@@ -81,6 +81,15 @@ vcs_others+=(["foreground"]="black")
 vcs_others+=(["background"]="colour245")
 vcs_others+=(["separator"]="${separator_right_bold}")
 register_segment "vcs_others"
+
+declare -A mail_count
+#mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
+#mail_count+=(["script"]="${segments_path}/mail_count_gmail.sh")
+mail_count+=(["script"]="${segments_path}/mail_count_apple_mail.sh")
+mail_count+=(["foreground"]="white")
+mail_count+=(["background"]="colour255")
+mail_count+=(["separator"]="${separator_right_bold}")
+register_segment "mail_count"
 
 # Print the status line in the order of registration above.
 print_status_line_left
