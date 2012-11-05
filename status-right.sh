@@ -83,13 +83,13 @@ battery+=(["background"]="colour137")
 battery+=(["separator"]="${separator_left_bold}")
 register_segment "battery"
 
-declare -A weather
-weather+=(["script"]="${segments_path}/weather_yahoo.sh")
+#declare -A weather
+#weather+=(["script"]="${segments_path}/weather_yahoo.sh")
 #weather+=(["script"]="${segments_path}/weather_google.sh")
-weather+=(["foreground"]="colour255")
-weather+=(["background"]="colour37")
-weather+=(["separator"]="${separator_left_bold}")
-register_segment "weather"
+#weather+=(["foreground"]="colour255")
+#weather+=(["background"]="colour37")
+#weather+=(["separator"]="${separator_left_bold}")
+#register_segment "weather"
 
 #declare -A xkb_layout
 #if [ "$PLATFORM" == "linux" ]; then
