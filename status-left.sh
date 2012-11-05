@@ -17,13 +17,37 @@ mute_status_check "left"
 
 # Segments
 
-#declare -A tmux_session_info
-#tmux_session_info+=(["script"]="${segments_path}/tmux_session_info.sh")
-#tmux_session_info+=(["foreground"]="colour234")
-#tmux_session_info+=(["background"]="colour148")
-#tmux_session_info+=(["separator"]="${separator_right_bold}")
-#tmux_session_info+=(["separator_fg"]="default")
-#register_segment "tmux_session_info"
+declare -A mail_count
+#mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
+#mail_count+=(["script"]="${segments_path}/mail_count_gmail.sh")
+mail_count+=(["script"]="${segments_path}/mail_count_apple_mail.sh")
+mail_count+=(["foreground"]="black")
+mail_count+=(["background"]="colour255")
+mail_count+=(["separator"]="${separator_right_bold}")
+register_segment "mail_count"
+
+declare -A date_day
+date_day+=(["script"]="${segments_path}/date_day.sh")
+date_day+=(["foreground"]="colour136")
+date_day+=(["background"]="colour235")
+date_day+=(["separator"]="${separator_right_bold}")
+register_segment "date_day"
+
+declare -A date_full
+date_full+=(["script"]="${segments_path}/date_full.sh")
+date_full+=(["foreground"]="colour136")
+date_full+=(["background"]="colour235")
+date_full+=(["separator"]="${separator_right_thin}")
+date_full+=(["separator_fg"]="default")
+register_segment "date_full"
+
+declare -A time
+time+=(["script"]="${segments_path}/time.sh")
+time+=(["foreground"]="colour136")
+time+=(["background"]="colour235")
+time+=(["separator"]="${separator_right_thin}")
+time+=(["separator_fg"]="default")
+register_segment "time"
 
 declare -A hostname
 hostname+=(["script"]="${segments_path}/hostname.sh")
@@ -92,15 +116,6 @@ vcs_others+=(["foreground"]="black")
 vcs_others+=(["background"]="colour245")
 vcs_others+=(["separator"]="${separator_right_bold}")
 register_segment "vcs_others"
-
-declare -A mail_count
-#mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
-#mail_count+=(["script"]="${segments_path}/mail_count_gmail.sh")
-mail_count+=(["script"]="${segments_path}/mail_count_apple_mail.sh")
-mail_count+=(["foreground"]="white")
-mail_count+=(["background"]="colour255")
-mail_count+=(["separator"]="${separator_right_bold}")
-register_segment "mail_count"
 
 # Print the status line in the order of registration above.
 print_status_line_left
