@@ -32,6 +32,17 @@ hostname+=(["background"]="colour245")
 hostname+=(["separator"]="${separator_right_bold}")
 register_segment "hostname"
 
+declare -A battery
+if [ "$PLATFORM" == "mac" ]; then
+	battery+=(["script"]="${segments_path}/battery_mac.sh")
+else
+	battery+=(["script"]="${segments_path}/battery.sh")
+fi
+battery+=(["foreground"]="colour127")
+battery+=(["background"]="colour137")
+battery+=(["separator"]="${separator_right_bold}")
+register_segment "battery"
+
 declare -A lan_ip
 lan_ip+=(["script"]="${segments_path}/lan_ip.sh")
 lan_ip+=(["foreground"]="colour255")
