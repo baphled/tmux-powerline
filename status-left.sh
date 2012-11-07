@@ -17,6 +17,20 @@ mute_status_check "left"
 
 # Segments
 
+declare -A tmux_session_info
+tmux_session_info+=(["script"]="${segments_path}/tmux_session_info.sh")
+tmux_session_info+=(["foreground"]="colour234")
+tmux_session_info+=(["background"]="colour148")
+tmux_session_info+=(["separator"]="${separator_right_bold}")
+register_segment "tmux_session_info"
+
+declare -A whoami
+whoami+=(["script"]="${segments_path}/whoami.sh")
+whoami+=(["foreground"]="colour245")
+whoami+=(["background"]="colour238")
+whoami+=(["separator"]="${separator_right_bold}")
+register_segment "whoami"
+
 declare -A mail_count
 #mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
 #mail_count+=(["script"]="${segments_path}/mail_count_gmail.sh")
